@@ -1,0 +1,20 @@
+---
+
+- name: install hostapd
+  package:
+    name:
+      - hostapd
+      - haveged
+    state: present
+
+- name: configure hostapd
+  template:
+    src: templates/hostapd.conf
+    dest: /etc/hostapd/hostapd.conf
+  notify: restart hostapd
+
+- name: enable hostapd
+  service:
+    name: hostapd
+    state: started
+    enabled: yes
