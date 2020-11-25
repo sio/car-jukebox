@@ -9,7 +9,7 @@
 - name: create systemd units
   template:
     src: 'templates/music.{{ item }}'
-    dest: '/etc/systemd/system/{{ mount_systemd_unit_prefix + "." item }}'
+    dest: '/etc/systemd/system/{{ mount_systemd_unit_prefix + "." + item }}'
     mode: '0644'
   loop: '{{ mount_systemd_unit_suffix }}'
   notify: remount music storage
