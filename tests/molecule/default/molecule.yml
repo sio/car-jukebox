@@ -1,0 +1,32 @@
+---
+driver:
+  name: docker
+
+
+platforms:
+  - name: jukebox
+    image: potyarkin/molecule:debian-10-systemd
+    pre_build_image: true
+    command: /sbin/init
+    privileged: yes
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /lib/modules:/lib/modules:ro
+    tmpfs:
+      - /run
+      - /tmp
+
+
+provisioner:
+  name: ansible
+  log: true
+
+
+verifier:
+  name: ansible
+
+
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
