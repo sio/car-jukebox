@@ -1,0 +1,8 @@
+---
+
+- name: remount music storage
+  systemd:
+    name: '{{ mount_systemd_unit_prefix }}.{{ item }}'
+    state: restarted
+    daemon_reload: yes
+  loop: '{{ mount_systemd_unit_suffix }}'

@@ -1,0 +1,10 @@
+{{ ansible_managed }}
+
+[Unit]
+Description=Automount music storage
+
+[Automount]
+Where={{ mount_directory }}
+
+[Install]
+WantedBy=multi-user.target

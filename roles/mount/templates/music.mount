@@ -1,0 +1,13 @@
+{{ ansible_managed }}
+
+[Unit]
+Description=Mount music storage
+
+[Mount]
+What={{ mount_drive }}
+Where={{ mount_directory }}
+Type=auto
+Options=defaults,ro
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+---
+
+- name: create mountpoint
+  file:
+    path: '{{ mount_directory }}'
+    state: directory
+
+- name: create systemd units
+  template:
+    src: 'templates/music.{{ item }}'
+    dest: '/etc/systemd/system/{{ mount_systemd_unit_prefix + "." item }}'
+  loop: '{{ mount_systemd_unit_suffix }}'
+  notify: remount music storage
+
+- name: enable systemd units
+  systemd:
+    name: '{{ mount_systemd_unit_prefix }}.{{ item }}'
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  loop: '{{ mount_systemd_unit_suffix }}'

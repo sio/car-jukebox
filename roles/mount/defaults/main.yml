@@ -1,0 +1,8 @@
+---
+mount_directory: /music/
+mount_drive: tmpfs
+
+mount_systemd_unit_prefix: '{{ mount_directory|replace("/","-")|trim("-") }}'
+mount_systemd_unit_suffix:
+  - mount
+  - automount
