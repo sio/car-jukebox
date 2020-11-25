@@ -3,6 +3,10 @@ VENVDIR=$(abspath ../.venv-tests)
 export YAMLLINT_CONFIG_FILE=$(abspath yamllint.yml)
 
 
+export PY_COLORS=1
+export ANSIBLE_FORCE_COLOR=1
+
+
 test: venv
 	$(VENV)/molecule $@
 
