@@ -3,12 +3,14 @@
 - name: create mountpoint
   file:
     path: '{{ mount_directory }}'
+    mode: '0755'
     state: directory
 
 - name: create systemd units
   template:
     src: 'templates/music.{{ item }}'
     dest: '/etc/systemd/system/{{ mount_systemd_unit_prefix + "." item }}'
+    mode: '0644'
   loop: '{{ mount_systemd_unit_suffix }}'
   notify: remount music storage
 
