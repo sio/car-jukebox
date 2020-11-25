@@ -1,2 +1,2 @@
 ---
-- import_playbook: ../jukebox.yml
+- import_playbook: ../../../jukebox.yml
