@@ -1,8 +1,10 @@
-# Music player configuration for use in a car
+# Configuration for music playing device in my car
+
+> **Project status**: work in progress, not usable yet
 
 This code is used to configure a music player that lives in my car.
 
-Hardware specs:
+## Hardware specs
 
 - Orange Pi Zero 256MB
 - Noname USB audio card
