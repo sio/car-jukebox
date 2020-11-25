@@ -1,0 +1,4 @@
+all:
+  hosts:
+    jukebox:
+      ansible_connection: local

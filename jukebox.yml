@@ -1,0 +1,4 @@
+- hosts: jukebox
+  become: yes
+  roles: []
+  tasks: []
