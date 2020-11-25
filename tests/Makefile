@@ -1,4 +1,6 @@
 REQUIREMENTS_TXT=../requirements.txt requirements.txt
+VENVDIR=$(abspath ../.venv-tests)
+export YAMLLINT_CONFIG_FILE=$(abspath yamllint.yml)
 
 
 test: venv
