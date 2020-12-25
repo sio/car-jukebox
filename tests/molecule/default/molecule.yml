@@ -1,20 +1,14 @@
 ---
 driver:
-  name: docker
+  name: vagrant
+  provider:
+    name: libvirt
 
 
 platforms:
   - name: jukebox
-    image: potyarkin/molecule:debian-10-systemd
-    pre_build_image: true
-    command: /sbin/init
-    privileged: yes
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - /lib/modules:/lib/modules:ro
-    tmpfs:
-      - /run
-      - /tmp
+    box: potyarkin/debian10
+    memory: 1024
 
 
 provisioner:

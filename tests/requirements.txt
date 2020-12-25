@@ -1,4 +1,6 @@
 molecule
-molecule-docker
+molecule-vagrant
+python-vagrant
+ansible
 ansible-lint
 yamllint
