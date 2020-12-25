@@ -21,5 +21,15 @@ task:
     fingerprint_script:
       - cat tests/requirements.txt
 
+  iptables_legacy_script:
+    - update-alternatives --set iptables /usr/sbin/iptables-legacy
+  dbus_background_script:
+    - mkdir -p /var/run/dbus
+    - /usr/bin/dbus-daemon --system --nofork --nopidfile
+  virtlogd_background_script:
+    - /usr/sbin/virtlogd
+  libvirtd_background_script:
+    - sleep 2 && /usr/sbin/libvirtd
+
   molecule_script:
     - make -C tests
