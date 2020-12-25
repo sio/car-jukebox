@@ -1,0 +1,25 @@
+task:
+  name: jukebox-test
+
+  container:
+    image: potyarkin/molecule:host-kvm
+    kvm: true
+
+  env:
+    PIP_CACHE_DIR: $HOME/cache/pip
+    VENVDIR: $HOME/venv
+
+    CLONE_SHA: "{{ GITHUB_SHA }}"
+    CLONE_URL: "{{ GITHUB_SERVER_URL }}/{{ GITHUB_REPOSITORY }}.git"
+
+  clone_script:
+    - git clone "$CLONE_URL" .
+    - git reset --hard "$CLONE_SHA"
+
+  pip_cache:
+    folder: $HOME/cache
+    fingerprint_script:
+      - cat tests/requirements.txt
+
+  molecule_script:
+    - make -C tests
