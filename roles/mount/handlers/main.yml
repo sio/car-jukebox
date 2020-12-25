@@ -6,3 +6,4 @@
     state: restarted
     daemon_reload: yes
   loop: '{{ mount_systemd_unit_suffix }}'
+  when: mount_directory in ansible_mounts|map(attribute="mount")

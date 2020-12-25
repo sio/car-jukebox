@@ -14,10 +14,9 @@
   loop: '{{ mount_systemd_unit_suffix }}'
   notify: remount music storage
 
-- name: enable systemd units
+- name: enable systemd automount
   systemd:
-    name: '{{ mount_systemd_unit_prefix }}.{{ item }}'
+    name: '{{ mount_systemd_unit_prefix }}.automount'
     state: started
     enabled: yes
     daemon_reload: yes
-  loop: '{{ mount_systemd_unit_suffix }}'
