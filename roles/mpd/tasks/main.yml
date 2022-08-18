@@ -6,3 +6,5 @@
     state: present
 
 # name: configure music player daemon
+
+# name: schedule music database refresh

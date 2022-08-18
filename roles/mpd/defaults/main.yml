@@ -1,2 +1,5 @@
 ---
-
+mpd_bind_address: 0.0.0.0
+mpd_bind_port: 6600
+mpd_music_dir: /music
+mpd_software_volume: no
